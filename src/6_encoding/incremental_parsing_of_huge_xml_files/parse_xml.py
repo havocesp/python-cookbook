@@ -5,11 +5,11 @@
 #
 # https://data.cityofchicago.org/api/views/7as2-ds3y/rows.xml?accessType=DOWNLOAD
 
-from xml.etree.ElementTree import iterparse
+import defusedxml.ElementTree
 
 def parse_and_remove(filename, path):
     path_parts = path.split('/')
-    doc = iterparse(filename, ('start', 'end'))
+    doc = defusedxml.ElementTree.iterparse(filename, ('start', 'end'))
     # Skip the root element
     next(doc)
 
