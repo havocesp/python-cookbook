@@ -25,9 +25,8 @@ if __name__ == '__main__':
         max_x = StructField('<d', 20)
         max_y = StructField('<d', 28)
         num_polys = StructField('<i', 36)
-
-    f = open('polys.bin','rb')
-    data = f.read()
+    with open('polys.bin','rb') as f:
+        data = f.read()
     
     phead = PolyHeader(data)
     print(phead.file_code == 0x1234)
