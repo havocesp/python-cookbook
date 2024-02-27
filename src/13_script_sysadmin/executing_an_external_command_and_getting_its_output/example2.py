@@ -1,4 +1,5 @@
 import subprocess
+from security import safe_command
 
 # Some text to send
 text = b'''
@@ -8,7 +9,7 @@ goodbye
 '''
 
 # Launch a command with pipes
-p = subprocess.Popen(['wc'],
+p = safe_command.run(subprocess.Popen, ['wc'],
           stdout = subprocess.PIPE,
           stdin = subprocess.PIPE)
 
