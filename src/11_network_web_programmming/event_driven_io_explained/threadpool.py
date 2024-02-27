@@ -17,7 +17,8 @@ class ThreadPoolHandler(EventHandler):
         self.signal_done_sock.send(b'x')
 
     # Run a function in a thread pool
-    def run(self, func, args=(), kwargs={},*,callback):
+    def run(self, func, args=(), kwargs=None,*,callback):
+        kwargs = {} if kwargs is None else kwargs
         r = self.pool.submit(func, *args, **kwargs)
         r.add_done_callback(lambda r: self._complete(callback, r))
 

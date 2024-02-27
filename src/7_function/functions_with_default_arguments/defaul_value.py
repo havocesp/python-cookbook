@@ -2,7 +2,8 @@
 
 # (a) Dangers of using a mutable default argument
 
-def spam(b=[]):
+def spam(b=None):
+    b = [] if b is None else b
     return b
 
 a = spam()
