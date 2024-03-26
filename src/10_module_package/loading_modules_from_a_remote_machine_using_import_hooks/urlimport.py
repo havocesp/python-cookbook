@@ -21,7 +21,7 @@ def _get_links(url):
 
     links = set()
     try:
-        log.debug('Getting links from %s' % url)
+        log.debug('Getting links from %s', url)
         u = urlopen(url)
         parser = LinkParser()
         parser.feed(u.read().decode('utf-8'))
