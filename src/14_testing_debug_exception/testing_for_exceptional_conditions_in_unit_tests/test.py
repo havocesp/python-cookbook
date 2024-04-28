@@ -19,7 +19,8 @@ import errno
 class TestIO(unittest.TestCase):
     def test_file_not_found(self):
         try:
-            f = open('/file/not/found')
+            with open('/file/not/found') as f:
+                pass
         except IOError as e:
             self.assertEqual(e.errno, errno.ENOENT)
         else:
