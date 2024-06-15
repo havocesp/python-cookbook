@@ -2,7 +2,7 @@
 
 import requests
 
-resp = requests.head('http://www.python.org/index.html')
+resp = requests.head('http://www.python.org/index.html', timeout=60)
 
 status = resp.status_code
 last_modified =	resp.headers['last-modified']
