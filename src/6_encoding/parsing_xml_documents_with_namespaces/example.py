@@ -2,7 +2,7 @@
 # 
 # Example of XML namespace handling
 
-from xml.etree.ElementTree import parse
+import defusedxml.ElementTree
 
 class XMLNamespaces:
     def __init__(self, **kwargs):
@@ -14,7 +14,7 @@ class XMLNamespaces:
     def __call__(self, path):
         return path.format_map(self.namespaces)
 
-doc = parse('sample.xml')
+doc = defusedxml.ElementTree.parse('sample.xml')
 ns = XMLNamespaces(html='http://www.w3.org/1999/xhtml')
 
 e = doc.find(ns('content/{html}html'))

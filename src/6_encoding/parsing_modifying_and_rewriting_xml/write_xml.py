@@ -2,8 +2,10 @@
 #
 # Example of reading an XML document, making changes, and writing it back out
 
-from xml.etree.ElementTree import parse, Element
-doc = parse('pred.xml')
+from xml.etree.ElementTree import Element
+import defusedxml.ElementTree
+
+doc = defusedxml.ElementTree.parse('pred.xml')
 root = doc.getroot()
 
 # Remove a few elements
