@@ -16,7 +16,7 @@ headers = {
     'Spam' : 'Eggs'
 }
 
-resp = requests.post(url, data=parms, headers=headers)
+resp = requests.post(url, data=parms, headers=headers, timeout=60)
 
 # Decoded text returned by the request
 text = resp.text
