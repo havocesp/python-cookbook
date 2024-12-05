@@ -8,7 +8,7 @@ import ssl
 class VerifyCertSafeTransport(SafeTransport):
     def __init__(self, cafile, certfile=None, keyfile=None):
         super().__init__()
-        self._ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+        self._ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
         self._ssl_context.load_verify_locations(cafile)
         if certfile:
             self._ssl_context.load_cert_chain(certfile, keyfile)
